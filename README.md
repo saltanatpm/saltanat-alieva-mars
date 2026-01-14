@@ -1,2 +1,2 @@
 # saltanat-alieva-mars
-Portfolio project for Intro to Programming course with Code the Dream
+Saltanat Alieva. Portfolio project for Intro to Programming course with Code the Dream
