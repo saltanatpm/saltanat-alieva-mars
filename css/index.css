@@ -14,8 +14,7 @@ h1,h2,h3 {
 h1 {
     font-size: 40px;
     text-align: center;
-    letter-spacing: 2pm;
-    color:blue;
+    letter-spacing: 2px;
 }
 
 h2 {
@@ -23,6 +22,10 @@ h2 {
     margin-bottom: 10px;
 }
 
+img {
+    display: block;
+    margin: 0 auto;
+}
 section {
     padding: 20px;
     margin: 20px auto;
@@ -36,8 +39,66 @@ section {
 }
 
 #connect {
-    border-radius: 10px;
     background-color: #ffffff;
     border-radius: 5px;
     padding: 10px 15px;
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    background-color: white;
+    border-bottom: 2px solid brown;
+    z-index: 1000;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 15px;
+}
+
+nav a {
+    text-decoration: none;
+    color: brown;
+    font-weight: 600;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+.job {
+    margin-bottom: 20px;
+}
+
+.job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.job-header span {
+    font-size: 14px;
+    color: #666;
+}
+
+.connect-links {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding-top: 10px;
+}
+
+.connect-links a {
+    color: brown;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.connect-links a:hover {
+    text-decoration: underline;
 }
