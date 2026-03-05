@@ -34,6 +34,8 @@ messageForm.addEventListener("submit", function (event) {
     const email = event.target.usersEmail.value.trim();
     const message = event.target.usersMessage.value.trim();
 
+    console.log(usersName, usersEmail, usersMessage);
+
     if (!name || !email || !message) return;
 
     const newMessage = buildMessageLi(name, email, message);
