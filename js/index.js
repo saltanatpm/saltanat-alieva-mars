@@ -5,7 +5,6 @@ const messageForm = document.querySelector('form[name="leave_message"]');
 const messageList = document.querySelector("#messages ul");
 const footer = document.querySelector("footer");
 
-
 // Build Message <li>
 function buildMessageLi(name, email, message) {
     const li = document.createElement("li");
@@ -13,9 +12,10 @@ function buildMessageLi(name, email, message) {
     const nameLink = document.createElement("a");
     nameLink.href = `mailto:${email}`;
     nameLink.textContent = name;
-
     const messageText = document.createElement("span");
     messageText.textContent = ` ${message}`;
+    const messageText = document.createElement("p");
+    messageText.textContent = message;
 
     const removeButton = document.createElement("button");
     removeButton.type = "button";
@@ -33,10 +33,9 @@ messageForm.addEventListener("submit", function (event) {
     const name = event.target.usersName.value.trim();
     const email = event.target.usersEmail.value.trim();
     const message = event.target.usersMessage.value.trim();
-
-    console.log(usersName, usersEmail, usersMessage);
-
     if (!name || !email || !message) return;
+
+    console.log(name, email, message);  // ✅ Added log
 
     const newMessage = buildMessageLi(name, email, message);
     messageList.append(newMessage);
@@ -62,6 +61,9 @@ const skillsList = document.querySelector("#skills ul");
 skills.forEach(skillItem => {
     const li = document.createElement("li");
     li.textContent = skillItem;
+skills.sort().forEach(skill => {
+    const li = document.createElement("li");
+    li.textContent = skill;
     skillsList.append(li);
 });
 
@@ -96,3 +98,32 @@ fetch("https://api.github.com/users/saltanatpm/repos")
   });
 
  
+
+.catch(function(error) {
+    console.error("Error fetching repositories:", error);
+
+    const projectSection = document.getElementById("projects");
+    const projectList = projectSection.querySelector("ul");
+    projectList.innerHTML = "<li>Sorry, unable to load projects right now.</li>";
+});
+
+ 
+const footer = document.querySelector("footer");
+const copyright = document.createElement("p");
+
+const today = new Date();
+const thisYear = today.getFullYear();
+
+copyright.innerHTML = `© ${thisYear} Saltanat Alieva`;
+footer.appendChild(copyright);
+
+const skills = ["Matlab", "Maple", "Adobe Photoshop", "Adobe Illustrator", "JavaScript", "HTML", "CSS", "Adobe Photoshop", "GitHub"];
+const skillsSection = document.getElementById("skills");
+const skillsList = skillsSection.querySelector("ul");
+
+for (let i = 0; i < skills.length; i++) {
+    const skill = document.createElement("li");
+    skill.innerText = skills[i];
+    skillsList.appendChild(skill);
+}
+
