@@ -139,3 +139,19 @@ nav a:hover {
     gap: 0.5rem;
   }
 }
+
+#skills ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+}
+
+#skills li {
+    background-color: rgb(56, 52, 52);
+    color: white;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+}
