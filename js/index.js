@@ -5,7 +5,6 @@ const messageForm = document.querySelector('form[name="leave_message"]');
 const messageList = document.querySelector("#messages ul");
 const footer = document.querySelector("footer");
 
-
 // Build Message <li>
 function buildMessageLi(name, email, message) {
     const li = document.createElement("li");
@@ -13,7 +12,8 @@ function buildMessageLi(name, email, message) {
     const nameLink = document.createElement("a");
     nameLink.href = `mailto:${email}`;
     nameLink.textContent = name;
-
+    const messageText = document.createElement("span");
+    messageText.textContent = ` ${message}`;
     const messageText = document.createElement("p");
     messageText.textContent = message;
 
@@ -33,7 +33,6 @@ messageForm.addEventListener("submit", function (event) {
     const name = event.target.usersName.value.trim();
     const email = event.target.usersEmail.value.trim();
     const message = event.target.usersMessage.value.trim();
-
     if (!name || !email || !message) return;
 
     console.log(name, email, message);  // ✅ Added log
@@ -59,6 +58,9 @@ footer.append(copyright);
 // Skills Section
 const skills = ["Matlab","Maple","Adobe Photoshop","Adobe Illustrator","JavaScript","HTML","CSS","GitHub"];
 const skillsList = document.querySelector("#skills ul");
+skills.forEach(skillItem => {
+    const li = document.createElement("li");
+    li.textContent = skillItem;
 skills.sort().forEach(skill => {
     const li = document.createElement("li");
     li.textContent = skill;
@@ -91,6 +93,11 @@ fetch("https://api.github.com/users/saltanatpm/repos")
     }
 
   })
+  .catch(function(error) {
+    console.error("Error fetching repositories:", error);
+  });
+
+ 
 
 .catch(function(error) {
     console.error("Error fetching repositories:", error);
@@ -101,7 +108,6 @@ fetch("https://api.github.com/users/saltanatpm/repos")
 });
 
  
-=======
 const footer = document.querySelector("footer");
 const copyright = document.createElement("p");
 
@@ -120,4 +126,4 @@ for (let i = 0; i < skills.length; i++) {
     skill.innerText = skills[i];
     skillsList.appendChild(skill);
 }
->>>>>>> c14418455020a4b8305c627cd065c4100e0b4b2a
+
