@@ -33,11 +33,10 @@ messageForm.addEventListener("submit", function (event) {
     const name = event.target.usersName.value.trim();
     const email = event.target.usersEmail.value.trim();
     const message = event.target.usersMessage.value.trim();
-
-    console.log(usersName, usersEmail, usersMessage);
+    
+    console.log(name, email, message);  // ✅ Added log
 
     if (!name || !email || !message) return;
-
     const newMessage = buildMessageLi(name, email, message);
     messageList.append(newMessage);
     messageForm.reset();
@@ -93,6 +92,9 @@ fetch("https://api.github.com/users/saltanatpm/repos")
   })
   .catch(function(error) {
     console.error("Error fetching repositories:", error);
-  });
 
+    const projectSection = document.getElementById("projects");
+    const projectList = projectSection.querySelector("ul");
+    projectList.innerHTML = "<li>Sorry, unable to load projects right now.</li>";
+});
  
