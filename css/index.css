@@ -1,11 +1,16 @@
 /*    BASE / MOBILE FIRST */
 
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
+html {
+  scroll-behavior: smooth; 
+}
 
 body {
   margin: 0;
-  padding: 0;
+  padding: 0 0.5rem;
   line-height: 1.6;
   background-color: aliceblue;
   color: #333;
@@ -33,12 +38,18 @@ img {
   margin: 0 auto;
 }
 
+:root {
+  --sticky-nav-height: 70px;
+}
 section {
   padding: 1rem;
   margin: 1rem auto;
   max-width: 800px;
   border: 2px dashed #6c6767;
+  scroll-margin-top: var(--sticky-nav-height);
+  border-radius: 10px;
 }
+/* NAVIGATION */
 nav {
   position: sticky;
   top: 0;
@@ -63,7 +74,6 @@ nav a {
 }
 
 nav a:hover {
-  text-decoration: underline;
   border-bottom: 2px solid brown;
 }
 
@@ -154,10 +164,7 @@ nav a:hover {
     border-radius: 20px;
     font-size: 14px;
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> e736bfbb3513b445f9bedee717731ff578c3efaa
 /* FORM */
 
 #leave-message form {
@@ -186,7 +193,6 @@ nav a:hover {
     cursor: pointer;
     border: none;
     border-radius: 5px;
-    cursor: pointer;
 }
 
 #messages button {
@@ -205,7 +211,3 @@ nav a:hover {
   padding: 10px;
   border-radius: 6px;
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> e736bfbb3513b445f9bedee717731ff578c3efaa
