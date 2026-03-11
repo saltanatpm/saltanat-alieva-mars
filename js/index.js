@@ -5,12 +5,11 @@ const messageForm = document.querySelector('form[name="leave_message"]');
 const messageList = document.querySelector("#messages ul");
 const footer = document.querySelector("footer");
 
-
 // Build Message <li>
 function buildMessageLi(name, email, message) {
     const li = document.createElement("li");
-
     const nameLink = document.createElement("a");
+    
     nameLink.href = `mailto:${email}`;
     nameLink.textContent = name;
 
@@ -59,6 +58,7 @@ footer.append(copyright);
 // Skills Section
 const skills = ["Matlab","Maple","Adobe Photoshop","Adobe Illustrator","JavaScript","HTML","CSS","GitHub"];
 const skillsList = document.querySelector("#skills ul");
+
 skills.forEach(skillItem => {
     const li = document.createElement("li");
     li.textContent = skillItem;
@@ -67,32 +67,26 @@ skills.forEach(skillItem => {
 
 // Fetch GitHub Repositories
 fetch("https://api.github.com/users/saltanatpm/repos")
-  .then(function(response) {
-    return response.json();
-  })
-  .then(function(repositories) {
+.then(response => response.json())
+.then(repositories => {
 
-    console.log(repositories); // See data in console
+    const projectList = document.querySelector("#projects ul");
 
-    const projectSection = document.getElementById("projects");
-    const projectList = projectSection.querySelector("ul");
+    repositories.forEach(repo => {
 
-    for (let i = 0; i < repositories.length; i++) {
+        const project = document.createElement("li");
 
-      const project = document.createElement("li");
+        const link = document.createElement("a");
+        link.href = repo.html_url;
+        link.innerText = repo.name;
+        link.target = "_blank";
 
-      const link = document.createElement("a");
-      link.href = repositories[i].html_url;
-      link.innerText = repositories[i].name;
-      link.target = "_blank";
-      
-      project.appendChild(link);
-      projectList.appendChild(project);
-    }
+        project.appendChild(link);
+        projectList.appendChild(project);
 
-  })
-  .catch(function(error) {
+    });
+
+})
+.catch(error => {
     console.error("Error fetching repositories:", error);
-  });
-
- 
+});
